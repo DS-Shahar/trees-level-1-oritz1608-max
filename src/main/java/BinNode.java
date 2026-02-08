@@ -58,6 +58,31 @@ public static int ex14_countLeaves(BinNode<Integer> t)
         }
         return ex21_isBalanced(t.getLeft()) && ex21_isBalanced(t.getRight());
     }
+    
+    public static boolean ex22_isBalanced(BinNode<Integer> t)
+    {
+        if(t==null)
+        {
+            return false;
+        }
+        if(t.getRight()==null && t.getLeft()==null)
+        {
+            return ex22_isBalanced(t.getRight()) && ex22_isBalanced(t.getLeft());
+        }
+        if(t.getRight()!=null && t.getLeft()==null)
+        {
+            return false;
+        }
+        if(t.getRight()==null && t.getLeft()!=null)
+        {
+            return false;
+        }
+        if(t.getRight()!=null && t.getLeft()!=null)
+        {
+            return ex22_isBalanced(t.getRight()) && ex22_isBalanced(t.getLeft());
+        }
+        return true;
+    }
 
     public static int ex27_height(BinNode<Integer> t) 
     {
